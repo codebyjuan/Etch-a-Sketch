@@ -56,9 +56,26 @@ standardBtn.addEventListener('click', () => {
 });
 
 
+sizeBtn.addEventListener('click', (e) => {
+    let grid;
+    do {
+        grid = prompt("What would you like the dimensions to be? (Please enter a number between 1 and 100)");
+        
+        if (grid === null) {
+            grid = 16;
+            break;
+        }
+        
+        grid = parseInt(grid);
+        
+        if (isNaN(grid) || grid <= 0 || grid > 100) {
+            alert("Please enter a valid number between 1 and 100.");
+        }
+    } while (isNaN(grid) || grid <= 0 || grid > 100);
+    
+    createGrid(grid);
+});
 
 createGrid(16);
-
-sizeBtn.addEventListener('click', (e) => {let grid = prompt("What would you like the dimensions to be?"); createGrid(grid);});
     
 
